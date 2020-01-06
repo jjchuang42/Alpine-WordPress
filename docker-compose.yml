@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  wp:
+    image: jjchuang42/wp
+    restart: always
+    environment:
+      DB_HOST: 192.168.99.100
+      DB_NAME: wordpress
+      DB_USER: wordpress
+      DB_PASSWORD: wordpress
+      FS_METHOD: direct
+    healthcheck:
+      test: ["CMD", "curl", "--silent", "--fail", "http://127.0.0.1/wp-login.php"]
+      timeout: 10s
+    ports:
+      - "80:80"
+    volumes:
+      - /wp_content:/var/www/wp-content
+    container_name: wp

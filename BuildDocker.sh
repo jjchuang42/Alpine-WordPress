@@ -1,0 +1,2 @@
+# 命令列啟動
+docker run -p 8088:8088 -v /wp_content:/var/www/wp-content -v /db:/var/lib/mysql -e "DB_HOST=127.0.0.1" -e "DB_NAME=wordpress" -e "DB_USER=wordpress" -e "DB_PASSWORD=wordpress" -e "FS_METHOD=direct" wpone
